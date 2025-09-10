@@ -1,81 +1,61 @@
----
-id: controlled
-label: ControlLED
-title: ControlLED - Speechhandler
-type: speechhandlers
-description: "A really simple module that combine Naomi and the Arduino platform to show possibilities in IOT and new interactions."
-logo: images/plugins/led.png
-source: https://github.com/NaomiProject/controlLED-plugin/edit/master/README.md
-meta:
-  - property: og:title
-    content: "ControlLED - Speechhandler"
-  - property: og:description
-    content: "A really simple module that combine Naomi and the Arduino platform to show possibilities in IOT and new interactions."
+# IoT LED Control (Tkinter Simulation)
+
+A simple IoT project with a **Tkinter GUI** to simulate controlling an LED (ON/OFF).  
+Can run in **Simulation Mode** (no Arduino) or connect to a real Arduino via serial.
+
 ---
 
+## Objective
+Provide an easy-to-use graphical interface for LED control to learn IoT concepts via Python and Tkinter, regardless of hardware availability.
 
-# Control LED - Speechhandler
+---
 
-<PluginLogo/>
+## Tools & Technologies
+- **Programming Language**: Python 3.x  
+- **Framework**: Tkinter (GUI)  
+- **Simulation Mode**: Runs without hardware  
+- **Optional Dependency**: `pyserial` (for real Arduino support)
 
->:warning: Note: Here's an example of a plugin package for Naomi providing basics information about the plugin such as: language and the version support, include others specific files (i.e. provide your Arduino code) and instructions...
+---
 
-> This should be used as a generic template 
+## Setup Instructions
 
-A really simple module that combine Naomi and the Arduino platform to show possibilities in IOT and new interactions.
+### 1. Clone the Repository
+ git clone https://github.com/marthanjoel/IoT-LED-Control.git  
+cd IoT-LED-Control  
 
-With this really simple plugin you can basically control 2 leds using your voice.
+### 2. (Optional) Virtual Environment
+python3 -m venv venv  
+source venv/bin/activate  
 
-* **Languages:** _English and French_
-* **Naomi version support:** _V2.1_
+### 3. Install Dependencies
+pip install pyserial  
 
-* **dependencies:** [pyserial](https://pypi.org/project/pyserial/)
+### 4. Run the Application
+python3 app.py  
 
-## Installation
+---
 
-:warning: **first make sure you have the necessary dependencies to run it**
+## Simulation Mode
+- If no Arduino is connected, the app defaults to simulation.
+- GUI displays:
+  - **LED Indicator**: Green (OFF) and Yellow (ON).
+  - **Buttons**: "Turn LED ON" and "Turn LED OFF."
 
-To install this plugin in Naomi **using terminal**: 
+---
 
-**1.** Open a terminal window and run Naomi with the "--install" flag:
+## Future Improvements
+- Add support for multiple LEDs or IoT sensors.
+- Integrate MQTT for remote/IoT communication.
+- Save and log LED state data to file or cloud.
 
-```
-$ cd your_naomi_installation_directory
-$ ./Naomi --install "Control LED"
-```
+---
 
-**2.** Upload the arduino code available in `/controlLED/arduino_code` in the board
+## Screenshot
 
-**3.** and then launch Naomi ! H
+<img width="1158" height="740" alt="Screenshot from 2025-09-10 04-45-59" src="https://github.com/user-attachments/assets/706efd10-3624-435a-b3bf-c7803bcb32e9" />
 
-Have fun :wink:
+---
 
-**Need help ? we have a [discord](https://discord.gg/knequ9t) server for support**
-
-## Arduino setup
-
-* **IDE version:** _1.8.5_
-* **Arduino board:** _Any (Nano for the example below)_
-
-### Wiring 
-
-Using digital PIN 2 for the green led and digital pin 6 for the red led
-
-![Image not available for now, please contact support on discord](https://github.com/NaomiProject/controlLED/blob/master/SerialTest.png)
-
-### Error
-
-* could not open port
-
-Naomi tries both '/dev/ttyACM0' and '/dev/ttyUSB0' to search for your Arduino. If
-your Arduino has been assigned to a different device name in linux (such as
-'/dev/ttyACM1') you can put the device name in profile.yml:
-
-```
-Control LED:
-    device: '/dev/ttyACM1'
-```
-
-**Need help ? we have a [discord](https://discord.gg/knequ9t) server for support**
-
-<EditPageLink/>
+## License
+MIT
